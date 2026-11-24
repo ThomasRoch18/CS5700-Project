@@ -1,0 +1,24 @@
+# Compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+/bin/
+
+# Server-generated files
+storage/*
+!storage/.gitkeep
+
+# Environment variables and credentials
+.env
+.env.*
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
