@@ -11,6 +11,16 @@
 storage/*
 !storage/.gitkeep
 
+# Client-generated files
+downloads/*
+!downloads/.gitkeep
+
+# Generated experimental workloads
+testfiles/generated/
+
+# Temporary experimental results
+experiments/results/temp/
+
 # Environment variables and credentials
 .env
 .env.*
@@ -19,6 +29,6 @@ storage/*
 .vscode/
 .idea/
 
-# OS-generated files
+# Operating system files
 .DS_Store
 Thumbs.db

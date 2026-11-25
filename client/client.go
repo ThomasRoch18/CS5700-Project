@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"time"
 )
 
 const downloadsDir = "downloads"
@@ -75,6 +76,9 @@ func main() {
 			filename := filepath.Base(parts[2])
 			size := info.Size()
 
+			// Timer for Experiment 3
+			start := time.Now()
+
 			_, err = fmt.Fprintf(
 				conn,
 				"FILE|UPLOAD|%s|%d\n",
@@ -118,6 +122,15 @@ func main() {
 			if err != nil {
 				log.Println("Failed to receive upload confirmation:", err)
 				return
+			}
+
+			// End of timer for Experiment 3
+			elapsed := time.Since(start)
+
+			responseTime := float64(elapsed) / float64(time.Millisecond)
+
+			if strings.TrimSpace(response) == "ACK|UPLOAD" {
+				fmt.Printf("Response time: %.3f ms\n", responseTime)
 			}
 
 			fmt.Println("Server response:", strings.TrimSpace(response))
